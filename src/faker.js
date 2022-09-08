@@ -1,9 +1,9 @@
-import Express from "express";
+import express from "express";
 import { faker } from "@faker-js/faker";
 
 const app = express();
 
-function generarProductos() {
+export function productoFaker() {
   const productos = [];
   for (let i = 0; i < 5; i++) {
     const producto={
@@ -17,5 +17,5 @@ function generarProductos() {
   return {data: productos}
 };
 
-
-export default prodcutoFaker    
+export default productoFaker
+ 

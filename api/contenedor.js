@@ -148,4 +148,4 @@ archivos.save({
   thumbnail: "sgsdfsdg",
 });
 //archivos.getAll(); */
-module.exports= Contenedor
+export { Contenedor}

@@ -1,13 +1,14 @@
-const express = require("express");
+import express from "express"
 const { Router } = express;
-const productoFaker = require("../src/faker.js")
+import productoFaker from "../src/faker.js"
 
 const app = express()
 app.use(express.json())
 
+const routerProductos = express.Router();
 const productos = new productoFaker()
 
-router.get("/productos-test", async (req, res) => {
+routerProductos.get("/productos-test", (req, res) => {
   //let data = await archivo.getAll();
  
     let archivoProducto = productos
@@ -16,5 +17,4 @@ router.get("/productos-test", async (req, res) => {
   
 
 
-
-module.exports = productosRoutes
+export default routerProductos

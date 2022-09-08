@@ -1,9 +1,15 @@
 import express from "express"
 const app = express()
 app.use(express.json())
-import productosRoutes from "../api/productos";
+import routerProductos from "../api/productos.js";
+import path from 'path';
+import {fileURLToPath} from 'url';
 
-const knex = require("../src/db")
+const __filename = fileURLToPath(import.meta.url);
+
+// 👇️ "/home/john/Desktop/javascript"
+const __dirname = path.dirname(__filename);
+
 
 const port = process.env.PORT || 8080
 //midelwars de aplicacion
@@ -14,7 +20,7 @@ app.use(express.static(__dirname + "/public"));
 
 app.set("view engine" ,"ejs")
 app.set("views","./views")
-app.use("/",productosRoutes);
+app.use("/",routerProductos);
 
 //data
 let msn = [];
@@ -27,11 +33,11 @@ let msn = [];
 
 
 //server
-const http = require("http");
+import  http from "http";
 const server = http.createServer(app);
 
 //socket IO
-const { Server, Socket } = require("socket.io");
+import { Server, Socket } from "socket.io";
 const io = new Server(server);
 
 
